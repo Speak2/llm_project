@@ -2,8 +2,8 @@
 
 > This Django project uses Ollama to rewrite hotel property titles and descriptions, and generate summaries for each property.
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Speak2/Django_assignment/graphs/commit-activity)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Speak2/Django_assignment/issues)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Speak2/llm_project/graphs/commit-activity)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Speak2/llm_project/issues)
 
 
 ## Table of Contents
@@ -14,12 +14,12 @@
 4. [Configuration](#configuration)
 5. [Usage](#usage)
 6. [Database Creation guide ](#database-creation-guide )
-9. [Project Structure](#project-structure)
-10. [Technologies Used](#technologies-used)
-11. [Troubleshooting](#troubleshooting)
-11. [Development Tools](#development-tools)
-12. [Author](#authors)
-13. [License](#license)
+7. [Project Structure](#project-structure)
+8. [Technologies Used](#technologies-used)
+9. [Troubleshooting](#troubleshooting)
+10. [Development Tools](#development-tools)
+11. [Author](#authors)
+12. [License](#license)
 
 ## Key Features
 
@@ -41,7 +41,7 @@ Tools and packages required to successfully install this project:
 1. Clone the repository:
    ```
    git clone https://github.com/Speak2/llm_project
-   cd <project-directory>
+   cd llm_project
    ```
 
 2. Create a virtual environment and activate it:
@@ -75,12 +75,12 @@ Tools and packages required to successfully install this project:
 
 1. **Create a New `config.py` File**:
 
-   Please create a new file named `config.py` in the `Django_assignment/config.py` directory. Include the following code in this file, ensuring that you replace the placeholders with your specific database configuration details:
+   Please create a new file named `config.py` in the `llm_project/config.py` directory. Include the following code in this file, ensuring that you replace the placeholders with your specific database configuration details:
    ```python
    DJANGO_DATABASE_CONFIG = {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'database_name',
-    'USER': 'usernam',
+    'NAME': 'django_database_name',
+    'USER': 'username',
     'PASSWORD': 'password',
     'HOST': 'localhost',
     'PORT': 'port_address',

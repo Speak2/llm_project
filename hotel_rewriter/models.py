@@ -30,7 +30,7 @@ class Amenity(models.Model):
 
 class Property(models.Model):
     property_id = models.IntegerField()
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=500)
     description = models.TextField(blank=True)
     locations = models.ManyToManyField(Location, blank=True)
     amenities = models.ManyToManyField(Amenity, blank=True)

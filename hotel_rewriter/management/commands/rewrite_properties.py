@@ -4,33 +4,48 @@ import ollama
 
 
 class Command(BaseCommand):
-    help = 'Rewrites property titles and descriptions, and generates summaries using Ollama'
+    help = (
+        'Rewrites property titles and descriptions, and generates'
+        ' summaries using Ollama'
+    )
 
     def handle(self, *args, **options):
-        model = "gemma:2b"  # Make sure this matches the model you have in Ollama
-
-        # Create an Ollama client with the correct host and port
-        ollama_client = ollama.Client(host="http://localhost:8001")
+        model = "gemma2:2b"
 
         properties = Property.objects.all()
         for property in properties:
             # Rewrite title
-            title_prompt = f"Rewrite the following property title to make it more appealing: {property.title}"
-            title_response = ollama_client.generate(
+            title_prompt = (
+                "Be consistent: just make up a new hotel title from the given "
+                "hotel title, nothing else, and don't provide any formatting. "
+                f"Try to make the title appealing: {property.title}"
+            )
+            title_response = ollama.generate(
                 model=model, prompt=title_prompt)
             property.title = title_response['response'].strip()
+            print(property.title)
 
             # Rewrite description
-            desc_prompt = f"Rewrite the following property description to make it more engaging and informative: {property.description}"
-            desc_response = ollama_client.generate(
-                model=model, prompt=desc_prompt)
+            desc_prompt = (
+                "Be consistent: just write the hotel description in plain text"
+                " using the hotel title and its location. It should be "
+                "appealing; lie if you have to, and don't include the hotel"
+                f" title in the response. property-title: {property.title} "
+                f"and location: {property.locations}"
+            )
+            desc_response = ollama.generate(model=model, prompt=desc_prompt)
             property.description = desc_response['response'].strip()
 
             property.save()
 
             # Generate summary
-            summary_prompt = f"Summarize the following property information:\nTitle: {property.title}\nDescription: {property.description}\nAmenities: {', '.join(property.amenities.values_list('name', flat=True))}\nLocations: {', '.join(property.locations.values_list('name', flat=True))}"
-            summary_response = ollama_client.generate(
+            summary_prompt = (
+                "Be consistent: Summarize the following property information "
+                "in two to three sentences:\nTitle: {property.title}\n"
+                "Description: {property.description}\nLocations: "
+                f"{''.join(property.locations.values_list('name', flat=True))}"
+            )
+            summary_response = ollama.generate(
                 model=model, prompt=summary_prompt)
 
             PropertySummary.objects.update_or_create(

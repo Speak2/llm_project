@@ -1,0 +1,8 @@
+DJANGO_DATABASE_CONFIG = {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'database_name',
+    'USER': 'usernam',
+    'PASSWORD': 'password',
+    'HOST': 'localhost',
+    'PORT': 'port_address',
+}

@@ -42,21 +42,6 @@ class Property(models.Model):
         db_table = 'admin_panel_property'
 
 
-class PropertyImage(models.Model):
-    property = models.ForeignKey(
-        Property, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='property_images/')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(null=True, blank=True)
-    caption = models.CharField(
-        max_length=255, null=True, blank=True, default=None)
-    is_featured = models.BooleanField(default=False)
-
-    class Meta:
-        managed = False
-        db_table = 'admin_panel_propertyimage'
-
-
 class PropertySummary(models.Model):
     property = models.OneToOneField(
         Property, on_delete=models.CASCADE, related_name='summary')

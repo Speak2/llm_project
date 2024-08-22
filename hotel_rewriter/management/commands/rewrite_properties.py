@@ -41,8 +41,8 @@ class Command(BaseCommand):
             # Generate summary
             summary_prompt = (
                 "Be consistent: Summarize the following property information "
-                "in two to three sentences:\nTitle: {property.title}\n"
-                "Description: {property.description}\nLocations: "
+                f"in two to three sentences:\nTitle: {property.title}\n"
+                f"Description: {property.description}\nLocations: "
                 f"{''.join(property.locations.values_list('name', flat=True))}"
             )
             summary_response = ollama.generate(
@@ -52,6 +52,7 @@ class Command(BaseCommand):
                 property=property,
                 defaults={'summary': summary_response['response'].strip()}
             )
+            # print(summary_response['response'].strip())
 
             self.stdout.write(self.style.SUCCESS(
                 f'Successfully processed property {property.id}'))

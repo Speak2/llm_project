@@ -26,10 +26,11 @@ class Command(BaseCommand):
 
             # Rewrite description
             desc_prompt = (
-                "Be consistent: just write the hotel description in plain text"
+                "Be consistent: just make up the hotel description in plain text"
                 " using the hotel title and its location. It should be "
                 "appealing; lie if you have to, and don't include the hotel"
-                f" title in the response. property-title: {property.title} "
+                " title in the response and dont give me any placeholder. If the "
+                f"location is empty then ignore that. property-title: {property.title} "
                 f"and location: {property.locations}"
             )
             desc_response = ollama.generate(model=model, prompt=desc_prompt)

@@ -196,7 +196,7 @@ Access the admin panel at `http://127.0.0.1:8000/admin/` using the superuser cre
    ├── readme_img/ 
    ├── manage.py
    ├── config.py     # config.py file should be created here
-   ├── config-sample.txt           
+   ├── config.py.sample          
    ├── README.md   
    ├── requirements.txt      
    └── LICIENSE            

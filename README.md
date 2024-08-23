@@ -42,7 +42,7 @@ Tools and packages required to successfully install this project:
 
 ## Installation
 
-1. Before proceeding with the installation of this project, please ensure that you have both set up and run the `Django_assignment` project.
+1. Before proceeding with the installation of this project, please ensure that you have both set up and run the `Django_assignment` project before.
 
    GitHub repository: https://github.com/Speak2/Django_assignment
 
@@ -69,6 +69,7 @@ Tools and packages required to successfully install this project:
    ```
    python manage.py migrate
    ```
+   If any issues arise during migration, please refer to the troubleshooting section.
 
 7. Install and start Ollama:
    Follow the instructions at [Ollama's official website](https://ollama.ai/download) to install Ollama on your system.
@@ -226,6 +227,11 @@ For database connection issues:
 1. Verify that PostgreSQL is running on correct port
 2. Check that the database credentials in `config.py` are correct
 3. Ensure that the database user has the necessary permissions on the specific database.
+
+For resolving migration issues:
+1. If the migration does not generate the new summary table, consider starting fresh with the Django project.
+2. After successfully running the Django project on a new database, proceed to run the LLM project.
+3. This issue may arise due to migration history stored in the migration table, which could conflict with previous migration records.
 
 ## Development Tools
 

@@ -19,11 +19,12 @@
 6. [Database Creation guide ](#database-creation-guide )
 7. [Admin Panel](#admin-panel)
 8. [Project Structure](#project-structure)
-9. [Technologies Used](#technologies-used)
-10. [Troubleshooting](#troubleshooting)
-11. [Development Tools](#development-tools)
-12. [Author](#authors)
-13. [License](#license)
+9. [Screenshots](#screenshots)
+10. [Technologies Used](#technologies-used)
+11. [Troubleshooting](#troubleshooting)
+12. [Development Tools](#development-tools)
+13. [Author](#authors)
+14. [License](#license)
 
 ## Key Features
 

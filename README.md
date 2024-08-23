@@ -5,6 +5,9 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Speak2/llm_project/graphs/commit-activity)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Speak2/llm_project/issues)
 
+![Alt text](readme_img/screenshot_1.png)
+
+
 
 ## Table of Contents
 
@@ -107,11 +110,24 @@ Tools and packages required to successfully install this project:
    ```
    python manage.py rewrite_properties
    ```
+   This command will:
+   - Rewrite the title and description of each property in the database
+   - Generate a summary for each property
+   - Save the updated information and new summaries to the database
+3. Create a superuser(Admin user):
+   ```bash
+   python manage.py createsuperuser
+   ```
 
-This command will:
-- Rewrite the title and description of each property in the database
-- Generate a summary for each property
-- Save the updated information and new summaries to the database
+4. Start the development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+5. Access the application at `http://127.0.0.1:8000/`
+6. Access the admin panel at `http://127.0.0.1:8000/admin`
+
+
 
 ## Database Creation guide 
 
@@ -132,6 +148,20 @@ CREATE TABLE propertysummary (
       ON DELETE CASCADE
 );
 ```
+
+Here is the database schema for the `PropertySummary` table based on the Django model provided:
+
+| Column Name  | Data Type          | Constraints                                               |
+|--------------|--------------------|-----------------------------------------------------------|
+| id           | SERIAL (or INTEGER) | PRIMARY KEY                                               |
+| property_id  | INTEGER            | FOREIGN KEY references `property(id)` with `CASCADE` on delete |
+| summary      | TEXT               | NOT NULL                                                  |
+| created_at   | TIMESTAMP          | NOT NULL, defaults to the current timestamp               |
+| updated_at   | TIMESTAMP          | NOT NULL, auto-updated to the current timestamp           |
+
+- The `property_id` column is a foreign key that references the `id` column of the `property` table.
+- The `created_at` and `updated_at` columns automatically record the timestamps of when a record is created and last updated, respectively.
+- The `property_id` field has a `OneToOne` relationship with the `Property` table, meaning each property can have only one associated summary.
 ## Admin Panel
 
 Access the admin panel at `http://127.0.0.1:8000/admin/` using the superuser credentials.
@@ -170,7 +200,12 @@ Access the admin panel at `http://127.0.0.1:8000/admin/` using the superuser cre
    ├── requirements.txt      
    └── LICIENSE            
    ```
+## Screenshots
+This section contains the title and description of each hotel, followed by a summary of each hotel.
 
+![Screenshots of projects](readme_img/screenshot_2.png)
+
+![Screenshots of the project](readme_img/screenshot_3.png)
 
 ## Technologies Used
 

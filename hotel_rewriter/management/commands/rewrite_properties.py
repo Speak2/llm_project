@@ -23,7 +23,6 @@ class Command(BaseCommand):
             title_response = ollama.generate(
                 model=model, prompt=title_prompt)
             property.title = title_response['response'].strip()
-            print(property.title)
 
             # Rewrite description
             desc_prompt = (

@@ -38,6 +38,10 @@ Tools and packages required to successfully install this project:
 
 ## Installation
 
+1. Before proceeding with the installation of this project, please ensure that you have both set up and run the `Django_assignment` project.
+
+   GitHub repository: https://github.com/Speak2/Django_assignment
+
 1. Clone the repository:
    ```
    git clone https://github.com/Speak2/llm_project

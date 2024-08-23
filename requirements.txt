@@ -1,5 +1,4 @@
 django
 ollama
 psycopg2-binary
-pillow
 httpx

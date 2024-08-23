@@ -14,12 +14,13 @@
 4. [Configuration](#configuration)
 5. [Usage](#usage)
 6. [Database Creation guide ](#database-creation-guide )
-7. [Project Structure](#project-structure)
-8. [Technologies Used](#technologies-used)
-9. [Troubleshooting](#troubleshooting)
-10. [Development Tools](#development-tools)
-11. [Author](#authors)
-12. [License](#license)
+7. [Admin Panel](#admin-panel)
+8. [Project Structure](#project-structure)
+9. [Technologies Used](#technologies-used)
+10. [Troubleshooting](#troubleshooting)
+11. [Development Tools](#development-tools)
+12. [Author](#authors)
+13. [License](#license)
 
 ## Key Features
 
@@ -115,6 +116,7 @@ This command will:
 ## Database Creation guide 
 
 This project leverages the database established by the prior Django project. Additionally, a new `propertysummary` table has been created.
+In order to manually create the database table use the following sql query to create the database table in the existing django database.
 
 The sql to create the the `propertysummary` table-
 ```sql
@@ -130,6 +132,9 @@ CREATE TABLE propertysummary (
       ON DELETE CASCADE
 );
 ```
+## Admin Panel
+
+Access the admin panel at `http://127.0.0.1:8000/admin/` using the superuser credentials.
 
 ## Project Structure
 
